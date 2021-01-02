@@ -1,7 +1,8 @@
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
+const { PORT, API_KEY, API_SECRET, TOKEN_KEY, TOKEN_SECRET } = process.env;
+const port = PORT || 4000;
 
-const { API_KEY, API_SECRET, TOKEN_KEY, TOKEN_SECRET } = process.env;
 const Twit = require('twit');
 
 // ================ UTILS ======================
@@ -31,4 +32,4 @@ app.get('/timeline', (req, res) => {
   });
 });
 
-app.listen(4000, () => console.log('Express server is listening on port 4000!'));
+app.listen(port, () => console.log('Express server is listening on port 4000!'));
